@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forex Signal Simulator</title>
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  background: #101827;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.card {
+  background: #1d293b;
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+h2 { color: #56d6a0; }
+button {
+  padding: 12px;
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  background: #56d6a0;
+  font-weight: bold;
+}
+.price { font-size: 28px; }
+small { color: #bdc8d8; }
+</style>
+</head>
+<body>
+
+<h2>Forex Signal Simulator</h2>
+
+<div class="card">
+  <small>DEMO PRICE — NOT LIVE MARKET DATA</small>
+  <p>EUR/USD</p>
+  <div class="price" id="price">1.08500</div>
+</div>
+
+<div class="card">
+  <h3>Strategy Signal</h3>
+  <p id="signal">Press Analyze to begin.</p>
+  <button onclick="analyze()">Analyze Demo Market</button>
+</div>
+
+<div class="card">
+  <h3>Risk Reminder</h3>
+  <p>Never assume a signal guarantees profit.</p>
+  <p>This simulator does not place trades.</p>
+</div>
+
+<script>
+function analyze() {
+  const price = 1.08500 + (Math.random() - 0.5) * 0.002;
+  document.getElementById("price").textContent =
+    price.toFixed(5);
+
+  const signals = [
+    "BUY signal — simulated only",
+    "SELL signal — simulated only",
+    "WAIT — no simulated trade"
+  ];
+
+  document.getElementById("signal").textContent =
+    signals[Math.floor(Math.random() * signals.length)];
+}
+</script>
+
+</body>
+</html>
